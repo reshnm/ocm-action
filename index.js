@@ -1,7 +1,7 @@
 'use strict';
 
 import { join } from 'node:path';
-import { tmpdir } from 'node:os';
+import { tmpdir, platform, arch } from 'node:os';
 import { promisify } from 'node:util';
 import { mkdtemp } from 'node:fs';
 
@@ -32,9 +32,15 @@ try {
         
         const octokit = github.getOctokit(token);
     
+        const os = platform();
+        const architecture = arch();
+
+        console.log(`OS: ${os}`);
+        console.log(`Architecture: ${architecture}`);
+
         const workingDir = await mkdtempAsync(join(tmpdir(), 'ocm-'));
 
-        await fetchOCM(octokit, ocmVersion, baseURL, 'linux', 'amd64');
+        await fetchOCM(octokit, ocmVersion, os, architecture);
 
         await createComponentVersion(componentsDefinitionPath, workingDir, version);
         await transferComponentVersion(workingDir, baseURL);
