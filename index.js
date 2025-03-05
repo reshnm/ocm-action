@@ -13,7 +13,7 @@ try {
     
     // I want to get the latest release of github.com/open-component-model/ocm
     const octokit = github.getOctokit(token);
-    octokit.repos.getLatestRelease({
+    octokit.rest.repos.getLatestRelease({
         owner: 'open-component-model',
         repo: 'ocm'
     }).then(response => {
