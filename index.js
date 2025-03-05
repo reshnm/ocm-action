@@ -33,7 +33,11 @@ try {
         const octokit = github.getOctokit(token);
     
         const os = platform();
-        const architecture = arch();
+        let architecture = arch();
+
+        if (architecture === 'x64') {
+            architecture = 'amd64';
+        }
 
         console.log(`OS: ${os}`);
         console.log(`Architecture: ${architecture}`);
