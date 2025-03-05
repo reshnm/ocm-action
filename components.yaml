@@ -1,0 +1,5 @@
+components:
+  - name: "github.com/reshnm/foo"
+    version: "${VERSION}"
+    provider: 
+      name: "openmcp.cloud"

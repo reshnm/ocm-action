@@ -18,11 +18,17 @@ inputs:
     description: >
       The OCI registry base URL.
     required: true
-
-outputs:
-  tag:
+  components-definition-path:
     description: >
-      latest OCM cli version
+      The path to the components definition file.
+      Default is components.json.
+    required: false
+    default: "components.json"
+  version:
+    description: >
+      The version of the components to deploy.
+      Default is the latest version.
+    required: true
 
 runs:
   using: "node20"

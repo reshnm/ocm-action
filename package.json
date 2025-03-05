@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0"
-  }
+    "@actions/github": "^6.0.0",
+    "node-fetch": "^3.3.2",
+    "tar": "^7.4.3"
+  },
+  "type": "module"
 }

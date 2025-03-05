@@ -10,6 +10,8 @@ jobs:
       - uses: reshnm/ocm-action@main
         with:
           ocm-version: "latest"
-          base-url: "ghcr.io"
+          base-url: "ghcr.io/reshnm/test"
+          components-definition-path: "components.yaml"
+          version: "1.1.1"
       - run: |
           echo "Hello, world!"
