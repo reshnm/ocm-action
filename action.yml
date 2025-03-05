@@ -1,0 +1,29 @@
+name: "openmcp-ocm"
+description: "OpenMCP OCM Action"
+
+inputs:
+  token:
+    description: >
+      The token to use for the deployment to GHCR.
+      Default is GITHUB_TOKEN in the current repository.
+    required: false
+    default: ${{ github.token }}
+  ocm-version:
+    description: >
+      The version of OpenMCP OCM to use.
+      Default is latest.
+    required: false
+    default: "latest"
+  base-url:
+    description: >
+      The OCI registry base URL.
+    required: true
+
+outputs:
+  tag:
+    description: >
+      latest OCM cli version
+
+runs:
+  using: "node20"
+  main: "index.js"

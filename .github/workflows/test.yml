@@ -1,0 +1,15 @@
+name: test
+on:
+  - workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reshnm/ocm-action@main
+        with:
+          ocm-version: "latest"
+          base-url: "ghcr.io"
+      - run: |
+          echo "Hello, world!"
