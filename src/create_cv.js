@@ -10,12 +10,12 @@ export async function createComponentVersion(componentDefinitionPath, componentA
     console.log(`Creating component version for ${componentDefinitionPath} in ${componentArchivePath}`);
     
     // call the ocm CLI to create the component version
-    const { stdout, stderr } = await execAsync(`ocm add componentversions --create --file ${componentArchivePath} ${componentDefinitionPath} -- VERSION=${version}`);
+    const { stdout, stderr } = await execAsync(`./ocm add componentversions --create --file ${componentArchivePath} ${componentDefinitionPath} -- VERSION=${version}`);
 }
 
 export async function transferComponentVersion(componentArchivePath, targetRegistry) {
     console.log(`Transfering component version from ${componentArchivePath} to ${targetRegistry}`);
     
     // call the ocm CLI to transfer the component version
-    const { stdout, stderr } = await execAsync(`ocm transfer ctf --copy-resources --recursive ${componentArchivePath} ${targetRegistry}`);
+    const { stdout, stderr } = await execAsync(`./ocm transfer ctf --copy-resources --recursive ${componentArchivePath} ${targetRegistry}`);
 }
